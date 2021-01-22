@@ -1,6 +1,6 @@
 using System;
 
-namespace webApik8
+namespace webApik8.Models
 {
     public class WeatherForecast
     {
