@@ -4,7 +4,7 @@ metadata:
   name: poc-service
 spec:
   selector:
-    app: poc-netcore-pod
+    app: poc-k8
   ports:
   - name: http
     port: 80
@@ -14,19 +14,3 @@ spec:
   # - port: 80
   #   targetPort: 8080
   type: NodePort #change to LoadBalancer when set it in cloud
-
-
-# apiVersion: v1
-# kind: Service
-# metadata:  
-#   name: my-nodeport-service
-# spec:
-#   selector:    
-#     app: my-app
-#   type: NodePort
-#   ports:  
-#   - name: http
-#     port: 80
-#     targetPort: 80
-#     nodePort: 30036
-#     protocol: TCP

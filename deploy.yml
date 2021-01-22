@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: poc-k8
+  name: poc-k8-deployment
 spec:
   selector:
     matchLabels:
-      app: poc-netcore-pod
+      app: poc-k8
   template:
     metadata:
       labels:
-        app: poc-netcore-pod
+        app: poc-k8
     spec:
       containers:
       - name: poc-container
-        image: poc-webapik8:v1
+        image: msalazar10/poc-webapicore:latest
         resources:
           limits:
             memory: "128Mi"
