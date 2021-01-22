@@ -32,7 +32,11 @@ In a terminal run, in the project's root:
 * `kubectl create -f public-service.yml`
 * `kubectl describe service poc-service` and take note of the NodePort port and the public IP of the cluster
 
-In a browser or postman, go to: `http://{nodeIP}:{nodePort}`
+In a browser or postman, go to: `http://localhost:{nodePort}/health` to validate its loading from K8 container
 
 ### Service type
 In `public-service.yml` the type was set to `NodePort` for: 1) simplicity of the POC, 2) this is intented to be run locally, if its going to be used in a cloud provider, then use `LoadBalancer`
+
+
+## Reading from Docker Repository
+A docker repository was created and linked to this GitHub repository to create, build and publish a new image after a push to master. It will tag it as `latest` and available via `msalazar10/poc-webapicore:latest`
