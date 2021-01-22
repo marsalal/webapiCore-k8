@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using webApik8.Services;
 
 namespace webApik8
 {
@@ -31,6 +32,7 @@ namespace webApik8
         {
             services.AddControllers();
             services.AddHealthChecks();
+            services.AddSingleton<ITodoService, TodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
