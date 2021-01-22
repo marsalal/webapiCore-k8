@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-k8
+spec:
+  selector:
+    matchLabels:
+      app: poc-netcore-pod
+  template:
+    metadata:
+      labels:
+        app: poc-netcore-pod
+    spec:
+      containers:
+      - name: poc-container
+        image: poc-webapik8:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet: 
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
