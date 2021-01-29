@@ -19,11 +19,11 @@ Go to http://localhost/health to get the health probe
 ## Build Docker image
 In a terminal, run:
 
-* `docker build -t poc-webapik8:v1`
+* `docker build -t poc-webapik8:latest`
 * `docker images` (to validate the image has been created)
 
 ## Run API using Docker image
-In a terminal, run `docker run -it --rm -p 8080:80 poc-webapik8:v1`. To stop it, use `ctrl+c`
+In a terminal, run `docker run -it --rm -p 8080:80 poc-webapik8:latest`. To stop it, use `ctrl+c`
 
 ## Deploy into K8
 In a terminal run, in the project's root:
@@ -32,7 +32,7 @@ In a terminal run, in the project's root:
 * `kubectl create -f public-service.yml`
 * `kubectl describe service poc-service` and take note of the NodePort port and the public IP of the cluster
 
-In a browser or postman, go to: `http://localhost:{nodePort}/health` to validate its loading from K8 container
+In a browser or postman, go to: `http://localhost:300036/health` to validate its loading from K8 container
 
 ### Service type
 In `public-service.yml` the type was set to `NodePort` for: 1) simplicity of the POC, 2) this is intented to be run locally, if its going to be used in a cloud provider, then use `LoadBalancer`
